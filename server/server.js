@@ -40,7 +40,7 @@
 
 // Step 4: Sab sahi hone par server frontend ko 201 Created status ke saath success message bhej deta hai, aur user ko screen par "Order Saved" dikh jata hai.
 
-
+require("dotenv").config();
 const express = require("express");
 // Express framework ko import kiya hai taaki hum server aur routes bana sakein.
 const mongoose = require("mongoose");
@@ -57,7 +57,7 @@ app.use(express.json());
 // Ye middleware server ko incoming request ke JSON data ko samajhne aur read karne me madad karta hai.
 
 mongoose
-    .connect("mongodb://localhost:27017/food-delivery-app",)
+    .connect(process.env.MONGO_URL)
     // Local machine par chal rahe MongoDB database food-delivery-app se connection setup kiya hai. Purane connection code ke warnings se bachne ke liye options pass kiye hain.
     .then(() => console.log("Connected to db"))
     // Agar database se connection successfully ho jata hai, toh console me "Connected to db" print hoga.
