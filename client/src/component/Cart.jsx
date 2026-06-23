@@ -30,7 +30,7 @@ const Cart = () => {
 
       // Assuming you have a backend endpoint to handle the checkout
       const response = await axios.post(
-        "http://localhost:5000/previousOrders",
+        `${import.meta.env.VITE_API_URL}/previousOrders`,
         {
           orderId,
           dateOfOrder: new Date(),

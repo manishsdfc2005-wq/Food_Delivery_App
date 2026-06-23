@@ -16,7 +16,7 @@ const PreviousOrders = ({ handleShow }) => {
       try {
         // Safe coding ke liye use hota hai. Agar try ke andar ka code sahi chala toh sahi, warna agar koi gadbad hui toh catch us error ko handle kar lega taaki app crash na ho.
         const response = await axios.get(
-          "http://localhost:5000/previousOrders",
+          `${import.meta.env.VITE_API_URL}/previousOrders`,
         );
         // Backend URL par GET request maari taaki saare purane orders mil jayein. await lagaya taaki jab tak server se reply na aaye, code ruka rahe.
         setOrders(response.data);
